@@ -1,0 +1,41 @@
+<h2>
+  {{ titulo }}
+</h2>
+<!--Queremos que un atributo tenga el valor de una variable del modelo o una funcion del modelo-->
+{{ etiqueta_nombre }}:<br />
+<input
+  type="text"
+  [placeholder]="placeholder_nombre"
+  [(ngModel)]="nombreIntroducido"
+/>
+
+<input type="button" value="limpiar" (click)="limpiar()" />
+<p>
+  {{ nombreIntroducido }}
+</p>
+
+<!--Modulo de descripción-->
+{{ etiqueta_descripcion }}:<br />
+<input
+  type="text"
+  [placeholder]="placeholder_descripcion"
+  [(ngModel)]="descripcion_introducida"
+/>
+
+<input type="button" value="limpiar" (click)="limpiar2()" />
+<p>
+  {{ descripcion_introducida }}
+</p>
+
+<!--Modulo de archivo-->
+{{ etiqueta_archivo }}:<br />
+<input
+  type="text"
+  [placeholder]="placeholder_archivo"
+  [(ngModel)]="archivo_subido"
+/>
+
+<input type="button" value="limpiar" (click)="limpiar3()" />
+<p>
+  {{ archivo_subido }}
+</p>
