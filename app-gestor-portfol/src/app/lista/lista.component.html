@@ -1,0 +1,9 @@
+<h2>Lista portfolios</h2>
+<ul>
+  <!-- Unorderer List-->
+  <li *ngFor="let unPortfolio of arrayPortfolios; #i = index">
+    El portfolio {{ unPortfolio.getNombre() }}
+    <input type="button" value="X" />
+  </li>
+</ul>
+<input type="button" (click)="actualizar()" value="Actualizar" />

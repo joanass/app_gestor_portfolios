@@ -1,0 +1,22 @@
+<h2>
+  {{ titulo }}
+</h2>
+<!--Queremos que un atributo tenga el valor de una variable del modelo o una funcion del modelo-->
+{{ etiqueta_nombre }}:<br />
+<input
+  type="text"
+  [placeholder]="placeholder_nombre"
+  [(ngModel)]="nombreIntroducido"
+/>
+
+<input type="button" value="limpiar" (click)="limpiar()" />
+<p>
+  {{ nombreIntroducido }}
+</p>
+<input type="button" value="Dar de baja" (click)="retirar()" />
+
+<select [(ngModel)]="nombreIntroducido">
+  <option *ngFor="let p of arrayPortfolios" value="{{ p.getNombre() }}">
+    {{ p.getNombre() }}
+  </option>
+</select>

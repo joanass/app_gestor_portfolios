@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
+import { PortfoliosService } from "../portfolios.service";
 
 @Component({
-  selector: "app-form-alta", //<app-form-alta
+  selector: "app-form-alta", // <app-form-alta> etiqueta </app-form-alta>
   templateUrl: "./form-alta.component.html",
   styleUrls: ["./form-alta.component.css"]
 })
@@ -18,8 +19,11 @@ export class FormAltaComponent implements OnInit {
   etiqueta_archivo: string;
   placeholder_archivo: string;
   archivo_subido: string;
+  servPortfolio: PortfoliosService;
 
-  constructor() {}
+  constructor(sp: PortfoliosService) {
+    this.servPortfolio = sp;
+  }
 
   ngOnInit() {
     this.titulo = "Alta de portfolios";
@@ -45,5 +49,13 @@ export class FormAltaComponent implements OnInit {
   //Botón archivo
   limpiar3() {
     this.archivo_subido = "";
+  }
+  anadir() {
+    this.servPortfolio.alta(
+      this.nombreIntroducido,
+      this.descripcion_introducida,
+      this.archivo_subido
+    );
+    console.log("<<<DAR ALTA>>>");
   }
 }
